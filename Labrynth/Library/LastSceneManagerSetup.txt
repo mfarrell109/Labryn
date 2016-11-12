@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Dice/scenes/Demo/demo.unity
+- path: Assets/NewDice.unity
   isLoaded: 1
   isActive: 1

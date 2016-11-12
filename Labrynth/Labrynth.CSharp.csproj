@@ -68,9 +68,12 @@
   <ItemGroup>
     <Compile Include="Assets\Dice\Plugins\Dice.cs" />
     <Compile Include="Assets\Dice\Plugins\Die.cs" />
-    <Compile Include="Assets\Dice\Scripts\Dice\Die_d10.cs" />
-    <Compile Include="Assets\Dice\Scripts\Dice\Die_d6.cs" />
     <Compile Include="Assets\Dice\scenes\Demo\AppDemo.cs" />
+    <Compile Include="Assets\Scripts\Dice\Die_d10.cs" />
+    <Compile Include="Assets\Scripts\Dice\Die_d6.cs" />
+    <Compile Include="Assets\Scripts\DiceMovement.cs" />
+    <Compile Include="Assets\Scripts\DieValue.cs" />
+    <Compile Include="Assets\Scripts\DisplayCurrentDieValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dice\-Read-Me-.txt" />

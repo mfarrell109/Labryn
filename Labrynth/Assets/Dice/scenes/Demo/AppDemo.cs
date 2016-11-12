@@ -63,8 +63,10 @@ public class AppDemo : MonoBehaviour {
         camGallery = GameObject.Find("cameraPositionGallery");
 		// set GUI rectangles of the (screen related) gallery selector
 		rectGallerySelectBox = new Rect(Screen.width - 260, 10, 250, 170);
-		rectGallerySelect = new Rect(Screen.width-250,35,219,109);
-		rectModeSelect =  new Rect(10,10,180,80);
+        
+		//rectGallerySelect = new Rect(Screen.width-250,35,219,109);
+        rectGallerySelect = new Rect(400,400, 219, 109);
+        rectModeSelect =  new Rect(10,10,180,80);
 		// set (first) mode to gallery
         SetMode(MODE_GALLERY);	
 		
@@ -110,15 +112,15 @@ public class AppDemo : MonoBehaviour {
 		get
 		{
 			string _color = "blue";
-			int c = System.Convert.ToInt32(Random.value * 6);
+			int c = System.Convert.ToInt32(Random.value * 4);
 			switch(c)
 			{
 				case 0: _color = "red"; break;
 				case 1: _color = "green"; break;
 				case 2: _color = "blue"; break;
 				case 3: _color = "yellow"; break;
-				case 4: _color = "white"; break;
-				case 5: _color = "black"; break;				
+				//case 4: _color = "white"; break;
+				//case 5: _color = "black"; break;				
 			}
 			return _color;
 		}
@@ -154,9 +156,9 @@ public class AppDemo : MonoBehaviour {
 			cameraMovement = cameraMovementSpeed;
 
 		// slerp (circular interpolation) the position between start and next camera position
-		Camera.main.transform.position = Vector3.Slerp(startCameraPosition.transform.position, nextCameraPosition.transform.position,  cameraMovement / cameraMovementSpeed );
+		//Camera.main.transform.position = Vector3.Slerp(startCameraPosition.transform.position, nextCameraPosition.transform.position,  cameraMovement / cameraMovementSpeed );
 		// slerp (circular interpolation) the rotation between start and next camera rotation
-		Camera.main.transform.rotation = Quaternion.Slerp(startCameraPosition.transform.rotation, nextCameraPosition.transform.rotation,  cameraMovement / cameraMovementSpeed );
+		//Camera.main.transform.rotation = Quaternion.Slerp(startCameraPosition.transform.rotation, nextCameraPosition.transform.rotation,  cameraMovement / cameraMovementSpeed );
 
 		// stop moving if we arrived at the desired next camera postion
 		if (cameraMovement == cameraMovementSpeed)
