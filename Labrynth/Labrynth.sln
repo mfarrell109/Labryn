@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labrynth.CSharp", "Labrynth.CSharp.csproj", "{118E5427-4F8B-5401-06A5-39A1B4BACACA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labrynth", "Labrynth.csproj", "{2AD5B538-E54C-02ED-B3BA-A7ACF19C9E7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{118E5427-4F8B-5401-06A5-39A1B4BACACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{118E5427-4F8B-5401-06A5-39A1B4BACACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{118E5427-4F8B-5401-06A5-39A1B4BACACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{118E5427-4F8B-5401-06A5-39A1B4BACACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AD5B538-E54C-02ED-B3BA-A7ACF19C9E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AD5B538-E54C-02ED-B3BA-A7ACF19C9E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AD5B538-E54C-02ED-B3BA-A7ACF19C9E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AD5B538-E54C-02ED-B3BA-A7ACF19C9E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
