@@ -16,6 +16,7 @@ public class DiceMovement : MonoBehaviour {
     private GameObject[] RedTotal;
     private GameObject[] BlueTotal;
     private GameObject[] GreenTotal;
+    private bool redStop = false;
     BaseDieModel DisplayDie = new BaseDieModel();
     
     void Start ()
@@ -27,7 +28,10 @@ public class DiceMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if(redStop == true)
+        {
+
+        }
     }
 
     /**
@@ -46,7 +50,8 @@ public class DiceMovement : MonoBehaviour {
 
         try
         {
-            Invoke("UpdateDiceMovement", 2.5f);
+            Invoke("UpdateDiceMovement", 3f);
+
             foreach (GameObject Die in (BlueTotal))
             {
                 Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);
@@ -77,6 +82,7 @@ public class DiceMovement : MonoBehaviour {
     {
         foreach (GameObject Red in RedTotal)
         {
+            redStop = true;
             if (Physics.Raycast(Red.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) && 
                 (Red.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
                 (Red.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
@@ -93,7 +99,7 @@ public class DiceMovement : MonoBehaviour {
                 (Blue.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
                 DisplayDie.setBlueValue(hit.collider.GetComponent<DieValue>().value);
-                DisplayDie.setRedSum(DisplayDie.getRedSum() + DisplayDie.getRedValue());
+                DisplayDie.setBlueSum(DisplayDie.getBlueSum() + DisplayDie.getBlueValue());
             }
         }
         foreach (GameObject Green in GreenTotal)
@@ -104,8 +110,6 @@ public class DiceMovement : MonoBehaviour {
             {
                 DisplayDie.setGreenValue(hit.collider.GetComponent<DieValue>().value);
                 DisplayDie.setGreenSum(DisplayDie.getGreenSum() + DisplayDie.getGreenValue());
-                //DisplayDie.greenValue = hit.collider.GetComponent<DieValue>().value;
-                //DisplayDie.greenSum = DisplayDie.greenSum + DisplayDie.greenValue;
             }
         }
     }        

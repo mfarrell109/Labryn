@@ -137,5 +137,5 @@ public class BaseDieModel : MonoBehaviour
     public string getGreenName()
     {
         return greenName;
-    }
+    }    
 }
