@@ -72,6 +72,14 @@ public class DiceMovement : MonoBehaviour {
             {
                 ApplyForce(Die);
             }
+            foreach (GameObject Die in (ClassTotal))
+            {
+                ApplyForce(Die);
+            }
+            foreach (GameObject Die in (LevelTotal))
+            {
+                ApplyForce(Die);
+            }
         }
         catch (Exception e)
         {
@@ -123,6 +131,26 @@ public class DiceMovement : MonoBehaviour {
                 DisplayDie.setGreenSum(DisplayDie.getGreenSum() + DisplayDie.getGreenValue());
             }
         }
+        foreach (GameObject Class in ClassTotal)
+        {
+            if (Physics.Raycast(Class.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
+                (Class.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
+                (Class.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
+            {
+                DisplayDie.SetClassValue(hit.collider.GetComponent<DieValue>().value);
+                DisplayDie.SetClassSum(DisplayDie.GetClassSum() + DisplayDie.GetClassValue());
+            }
+        }
+        foreach (GameObject Level in LevelTotal)
+        {
+            if (Physics.Raycast(Level.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
+                (Level.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
+                (Level.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
+            {
+                DisplayDie.SetLevelValue(hit.collider.GetComponent<DieValue>().value);
+                DisplayDie.SetLevelSum(DisplayDie.GetLevelSum() + DisplayDie.GetLevelValue());
+            }
+        }
     }        
     
     /**
@@ -133,8 +161,8 @@ public class DiceMovement : MonoBehaviour {
         GUI.Label(new Rect(10, 10, 100, 20), DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum());
         GUI.Label(new Rect(0, 30, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum());
         GUI.Label(new Rect(10, 50, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum());
-        GUI.Label(new Rect(10, 70, 100, 20), DisplayDie.getClassName() + ": " + DisplayDie.getClassValue());
-        GUI.Label(new Rect(10, 90, 100, 20), DisplayDie.getLevelName() + ": " + DisplayDie.getLevelValue());
+        GUI.Label(new Rect(10, 70, 100, 20), DisplayDie.GetClassName() + ": " + DisplayDie.GetClassValue());
+        GUI.Label(new Rect(10, 90, 100, 20), DisplayDie.GetLevelName() + ": " + DisplayDie.GetLevelValue());
     }
 
 }

@@ -9,6 +9,8 @@ public class BaseDieModel : MonoBehaviour
     private int redValue;
     private int blueValue;
     private int greenValue;
+    private int classValue;
+    private int levelValue;
     private int diceClass;
     private int diceLevel;
     private int greenSum;
@@ -65,16 +67,6 @@ public class BaseDieModel : MonoBehaviour
     {
         return redValue;
     }
-    public int getClassValue()
-    {
-        return classSum;
-    }
-
-    public int getLevelValue()
-    {
-        return levelSum;
-    }
-
 
     public void setRedValue(int red)
     {
@@ -90,6 +82,59 @@ public class BaseDieModel : MonoBehaviour
     {
         this.greenValue = green;
     }
+
+
+    /* ************* Class Stuff ************/
+    public void SetClassValue(int val)
+    {
+        classValue = val;
+    }
+    public int GetClassValue()
+    {
+        return classValue;
+    }
+
+    public void SetClassSum(int sum)
+    {
+        classSum = sum;
+    }
+
+    public int GetClassSum()
+    {
+        return classSum;
+    }
+
+    public string GetClassName()
+    {
+        return diceClassName;
+    }
+
+
+    /* *************** Level Stuff *********/
+    public void SetLevelValue(int val)
+    {
+        levelValue = val;
+    }
+    public int GetLevelValue()
+    {
+        return levelValue;
+    }
+    public void SetLevelSum(int sum)
+    {
+        levelSum = sum;
+    }
+
+    public int GetLevelSum()
+    {
+        return levelSum;
+    }
+
+    public string GetLevelName()
+    {
+        return diceLevelName;
+    }
+
+    /* *************Blue Stuff ********/
 
     public int getBlueValue()
     {
@@ -129,16 +174,7 @@ public class BaseDieModel : MonoBehaviour
         this.greenSum = gs;
     }
 
-    public void SetClassSum(int sum)
-    {
-        classSum = sum;
-    }
-
-    public void SetLevelSum(int sum)
-    {
-        levelSum = sum;
-    }
-
+   
     public void setRedDiceName(string redStringName)
     {
         this.redName = redStringName;
@@ -159,16 +195,7 @@ public class BaseDieModel : MonoBehaviour
         return blueName;
     }
 
-    public string getClassName()
-    {
-        return diceClassName;
-    }
-
-    public string getLevelName()
-    {
-        return diceLevelName;
-    }
-
+    
     public void setGreenName(string greenStringName)
     {
         this.greenName = greenStringName;
