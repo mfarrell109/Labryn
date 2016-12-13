@@ -9,12 +9,18 @@ public class BaseDieModel : MonoBehaviour
     private int redValue;
     private int blueValue;
     private int greenValue;
+    private int diceClass;
+    private int diceLevel;
     private int greenSum;
     private int redSum;
     private int blueSum;
+    private int classSum;
+    private int levelSum;
     private string greenName;
     private string blueName;
     private string redName;
+    private string diceClassName;
+    private string diceLevelName;
 
     public BaseDieModel()
     {
@@ -26,9 +32,13 @@ public class BaseDieModel : MonoBehaviour
         redSum = 0;
         blueSum = 0;
         greenSum = 0;
+        diceClass = 0;
+        diceLevel = 0;
         greenName = "Movement";
         blueName = "Defense";
         redName = "Attack";
+        diceClassName = "Class";
+        diceLevelName = "Level";
     }
 
     public float getForce()
@@ -55,6 +65,16 @@ public class BaseDieModel : MonoBehaviour
     {
         return redValue;
     }
+    public int getClassValue()
+    {
+        return classSum;
+    }
+
+    public int getLevelValue()
+    {
+        return levelSum;
+    }
+
 
     public void setRedValue(int red)
     {
@@ -109,10 +129,20 @@ public class BaseDieModel : MonoBehaviour
         this.greenSum = gs;
     }
 
+    public void SetClassSum(int sum)
+    {
+        classSum = sum;
+    }
+
+    public void SetLevelSum(int sum)
+    {
+        levelSum = sum;
+    }
+
     public void setRedDiceName(string redStringName)
     {
         this.redName = redStringName;
-    }     
+    }
 
     public string getRedDiceName()
     {
@@ -129,6 +159,16 @@ public class BaseDieModel : MonoBehaviour
         return blueName;
     }
 
+    public string getClassName()
+    {
+        return diceClassName;
+    }
+
+    public string getLevelName()
+    {
+        return diceLevelName;
+    }
+
     public void setGreenName(string greenStringName)
     {
         this.greenName = greenStringName;
@@ -137,5 +177,5 @@ public class BaseDieModel : MonoBehaviour
     public string getGreenName()
     {
         return greenName;
-    }    
+    }
 }

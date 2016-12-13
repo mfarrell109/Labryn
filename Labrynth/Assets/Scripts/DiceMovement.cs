@@ -16,6 +16,8 @@ public class DiceMovement : MonoBehaviour {
     private GameObject[] RedTotal;
     private GameObject[] BlueTotal;
     private GameObject[] GreenTotal;
+    private GameObject[] ClassTotal;
+    private GameObject[] LevelTotal;
     private bool redStop = false;
     BaseDieModel DisplayDie = new BaseDieModel();
     
@@ -24,6 +26,8 @@ public class DiceMovement : MonoBehaviour {
         BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
         GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
+        ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
+        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
     }
 	
 	// Update is called once per frame
@@ -42,11 +46,15 @@ public class DiceMovement : MonoBehaviour {
         BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
         GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
+        ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
+        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
 
         //resetting each color dice total
         DisplayDie.setRedSum(0);
         DisplayDie.setBlueSum(0);
         DisplayDie.setGreenSum(0);
+        DisplayDie.SetClassSum(0);
+        DisplayDie.SetLevelSum(0);
 
         try
         {
@@ -54,24 +62,27 @@ public class DiceMovement : MonoBehaviour {
 
             foreach (GameObject Die in (BlueTotal))
             {
-                Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);
-                Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getTorque(), forceMode);
+                ApplyForce(Die);
             }
             foreach (GameObject Die in (RedTotal))
             {
-                Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);
-                Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getTorque(), forceMode);                
+                ApplyForce(Die);
             }
             foreach (GameObject Die in (GreenTotal))
             {
-                Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);
-                Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);                
+                ApplyForce(Die);
             }
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
         }
+    }
+
+    private void ApplyForce(GameObject Die)
+    {
+        Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);
+        Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getTorque(), forceMode);
     }
 
     /**
@@ -122,6 +133,8 @@ public class DiceMovement : MonoBehaviour {
         GUI.Label(new Rect(10, 10, 100, 20), DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum());
         GUI.Label(new Rect(0, 30, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum());
         GUI.Label(new Rect(10, 50, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum());
+        GUI.Label(new Rect(10, 70, 100, 20), DisplayDie.getClassName() + ": " + DisplayDie.getClassValue());
+        GUI.Label(new Rect(10, 90, 100, 20), DisplayDie.getLevelName() + ": " + DisplayDie.getLevelValue());
     }
 
 }
