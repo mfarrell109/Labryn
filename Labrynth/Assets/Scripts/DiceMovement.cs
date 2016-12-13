@@ -8,30 +8,32 @@ using System.Linq;
  */
 public class DiceMovement : MonoBehaviour {
 
+
     public LayerMask dieValueColliderLayer = -1;
     //public string buttonName = "Fire1";
     public ForceMode forceMode;
+    public Font greekfont;
     RaycastHit hit;
-
+    private GUIStyle guiStyle = new GUIStyle();
     private GameObject[] RedTotal;
     private GameObject[] BlueTotal;
     private GameObject[] GreenTotal;
-    private bool redStop = false;
     BaseDieModel DisplayDie = new BaseDieModel();
     
     void Start ()
-    {       
+    {
+
         BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
         GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
+
+        guiStyle.fontSize = 32;
+        guiStyle.normal.textColor = Color.red;
+        guiStyle.font = greekfont;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(redStop == true)
-        {
-
-        }
     }
 
     /**
@@ -44,9 +46,7 @@ public class DiceMovement : MonoBehaviour {
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
 
         //resetting each color dice total
-        DisplayDie.setRedSum(0);
-        DisplayDie.setBlueSum(0);
-        DisplayDie.setGreenSum(0);
+        resetDiceSums();
 
         try
         {
@@ -80,15 +80,24 @@ public class DiceMovement : MonoBehaviour {
      * **/
     private void UpdateDiceMovement()
     {
+        //GUI.DrawTexture(new Rect(10, 10, 60, 60), aTexture, ScaleMode.ScaleToFit, true, 10.0F);
+
+
+        Invoke("updateYellowFont", .3f);
+        Invoke("updateRedFont", .6f);
+        Invoke("updateYellowFont", .9f);
+        Invoke("updateRedFont", 1.2f);
+
         foreach (GameObject Red in RedTotal)
         {
-            redStop = true;
+          
             if (Physics.Raycast(Red.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) && 
                 (Red.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
                 (Red.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
                 DisplayDie.setRedValue(hit.collider.GetComponent<DieValue>().value);
                 DisplayDie.setRedSum(DisplayDie.getRedSum() + DisplayDie.getRedValue());
+                
             }
         }
 
@@ -112,16 +121,41 @@ public class DiceMovement : MonoBehaviour {
                 DisplayDie.setGreenSum(DisplayDie.getGreenSum() + DisplayDie.getGreenValue());
             }
         }
-    }        
+
+        
+    }      
+    
+    private void updateYellowFont()
+    {
+        guiStyle.normal.textColor = Color.yellow;
+        Debug.Log( "Yellow Count: ");
+    }  
+
+    private void updateRedFont()
+    {
+        guiStyle.normal.textColor = Color.red;
+        Debug.Log("Red Count: ");
+    }
+
+    public void resetDiceSums()
+    {
+        DisplayDie.setRedSum(0);
+        DisplayDie.setBlueSum(0);
+        DisplayDie.setGreenSum(0);
+    }
+
     
     /**
      * Labels to display for dice roll. Getting calculated values using the BaseDieModel
      **/
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 100, 20), DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum());
-        GUI.Label(new Rect(0, 30, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum());
-        GUI.Label(new Rect(10, 50, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum());
+        //GUILayout.Label(new Rect(10, 10, 100, 20), DisplayDie.getBlueDiceName() + ": " + DisplayDie.getBlueSum());
+        //GUI.contentColor = Color.black;
+        //GUI.DrawTexture(new Rect(100, 10, 100, 20), atexture, ScaleMode.ScaleToFit, true, 10.0F);
+        GUI.Label(new Rect(10, 10, 100, 20) , DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum(), guiStyle);
+        GUI.Label(new Rect(10, 40, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum(),guiStyle);
+        GUI.Label(new Rect(10, 70, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum(), guiStyle);
     }
 
 }

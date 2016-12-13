@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class BaseDieModel : MonoBehaviour
+public class BaseDieModel
 {
     private float force;
     private float torque;
@@ -137,5 +137,12 @@ public class BaseDieModel : MonoBehaviour
     public string getGreenName()
     {
         return greenName;
-    }    
+    } 
+    
+    public void resetDiceSums(int Sblue, int Sred, int Sgreen)
+    {
+        this.redSum = Sred;
+        this.blueSum = Sblue;
+        this.greenSum = Sgreen;
+    }   
 }

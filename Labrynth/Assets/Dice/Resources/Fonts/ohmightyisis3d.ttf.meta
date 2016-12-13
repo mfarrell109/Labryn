@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bbfc5c21366e84749863f33c3f3d9641
+timeCreated: 1481613491
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Oh Mighty Isis 3D
+  fontNames:
+  - Oh Mighty Isis 3D
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

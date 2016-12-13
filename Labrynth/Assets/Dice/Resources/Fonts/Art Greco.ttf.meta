@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 8af1c1a57e998cb4c930aa79c9f37350
+timeCreated: 1481478207
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Art Greco
+  fontNames:
+  - Art Greco
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

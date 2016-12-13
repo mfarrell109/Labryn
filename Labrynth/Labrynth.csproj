@@ -97,6 +97,9 @@
     <Compile Include="Assets\Scripts\Dice\Die_d6.cs" />
     <Compile Include="Assets\Scripts\DiceMovement.cs" />
     <Compile Include="Assets\Scripts\DieValue.cs" />
+    <Compile Include="Assets\Scripts\OnScreenIcons.cs" />
+    <Compile Include="Assets\Scripts\ResetRound.cs" />
+    <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\SpawnCube.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
   </ItemGroup>

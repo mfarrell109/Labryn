@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0f6d124e8e2b8ed46b59dbbe54858ea1
+timeCreated: 1481478211
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Ancient God
+  fontNames:
+  - Ancient God
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

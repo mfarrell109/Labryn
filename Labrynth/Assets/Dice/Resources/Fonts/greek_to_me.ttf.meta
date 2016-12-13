@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 389cc6e51ebb7e841a1e1a4694c8ac17
+timeCreated: 1481519161
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: greek to me
+  fontNames:
+  - greek to me
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
