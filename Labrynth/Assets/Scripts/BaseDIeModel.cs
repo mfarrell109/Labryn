@@ -9,12 +9,20 @@ public class BaseDieModel
     private int redValue;
     private int blueValue;
     private int greenValue;
+    private int classValue;
+    private int levelValue;
+    private int diceClass;
+    private int diceLevel;
     private int greenSum;
     private int redSum;
     private int blueSum;
+    private int classSum;
+    private int levelSum;
     private string greenName;
     private string blueName;
     private string redName;
+    private string diceClassName;
+    private string diceLevelName;
 
     public BaseDieModel()
     {
@@ -26,9 +34,13 @@ public class BaseDieModel
         redSum = 0;
         blueSum = 0;
         greenSum = 0;
+        diceClass = 0;
+        diceLevel = 0;
         greenName = "Movement";
         blueName = "Defense";
         redName = "Attack";
+        diceClassName = "Class";
+        diceLevelName = "Level";
     }
 
     public float getForce()
@@ -71,6 +83,59 @@ public class BaseDieModel
         this.greenValue = green;
     }
 
+
+    /* ************* Class Stuff ************/
+    public void SetClassValue(int val)
+    {
+        classValue = val;
+    }
+    public int GetClassValue()
+    {
+        return classValue;
+    }
+
+    public void SetClassSum(int sum)
+    {
+        classSum = sum;
+    }
+
+    public int GetClassSum()
+    {
+        return classSum;
+    }
+
+    public string GetClassName()
+    {
+        return diceClassName;
+    }
+
+
+    /* *************** Level Stuff *********/
+    public void SetLevelValue(int val)
+    {
+        levelValue = val;
+    }
+    public int GetLevelValue()
+    {
+        return levelValue;
+    }
+    public void SetLevelSum(int sum)
+    {
+        levelSum = sum;
+    }
+
+    public int GetLevelSum()
+    {
+        return levelSum;
+    }
+
+    public string GetLevelName()
+    {
+        return diceLevelName;
+    }
+
+    /* *************Blue Stuff ********/
+
     public int getBlueValue()
     {
         return blueValue;
@@ -109,10 +174,11 @@ public class BaseDieModel
         this.greenSum = gs;
     }
 
+   
     public void setRedDiceName(string redStringName)
     {
         this.redName = redStringName;
-    }     
+    }
 
     public string getRedDiceName()
     {
@@ -129,6 +195,7 @@ public class BaseDieModel
         return blueName;
     }
 
+    
     public void setGreenName(string greenStringName)
     {
         this.greenName = greenStringName;
@@ -137,6 +204,7 @@ public class BaseDieModel
     public string getGreenName()
     {
         return greenName;
+<<<<<<< HEAD
     } 
     
     public void resetDiceSums(int Sblue, int Sred, int Sgreen)
@@ -145,4 +213,7 @@ public class BaseDieModel
         this.blueSum = Sblue;
         this.greenSum = Sgreen;
     }   
+=======
+    }
+>>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
 }
