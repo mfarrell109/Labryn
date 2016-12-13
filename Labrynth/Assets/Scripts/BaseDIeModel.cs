@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
-using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class BaseDieModel
+public class BaseDieModel : MonoBehaviour
 {
     private float force;
     private float torque;
@@ -18,11 +19,11 @@ public class BaseDieModel
     private int blueSum;
     private int classSum;
     private int levelSum;
-    private string greenName;
-    private string blueName;
-    private string redName;
-    private string diceClassName;
-    private string diceLevelName;
+    public string greenName;
+    public string blueName;
+    public string redName;
+    public string diceClassName;
+    public string diceLevelName;
 
     public BaseDieModel()
     {
@@ -34,12 +35,10 @@ public class BaseDieModel
         redSum = 0;
         blueSum = 0;
         greenSum = 0;
-        diceClass = 0;
-        diceLevel = 0;
         greenName = "Movement";
         blueName = "Defense";
         redName = "Attack";
-        diceClassName = "Class";
+        diceClassName = "Monster";
         diceLevelName = "Level";
     }
 
@@ -204,16 +203,16 @@ public class BaseDieModel
     public string getGreenName()
     {
         return greenName;
-<<<<<<< HEAD
-    } 
+    }    
     
-    public void resetDiceSums(int Sblue, int Sred, int Sgreen)
+    public void resetDiceSums(int Sblue, int Sred, int Sgreen, int SClass, int SLevel)
     {
         this.redSum = Sred;
         this.blueSum = Sblue;
         this.greenSum = Sgreen;
+        this.classSum = SClass;
+        this.levelSum = SLevel;      
     }   
-=======
-    }
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
 }
+
+

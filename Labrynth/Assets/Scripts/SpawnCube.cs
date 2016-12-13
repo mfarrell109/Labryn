@@ -7,7 +7,6 @@ public class SpawnCube : MonoBehaviour
 {
     public GameObject RedCube;
     public GameObject GreenCube;
-<<<<<<< HEAD
     public GameObject BlueCube;
     private GameObject[] CloneRed;
     private GameObject[] CloneBlue;
@@ -22,21 +21,15 @@ public class SpawnCube : MonoBehaviour
 
     BaseDieModel DisplayDie = new BaseDieModel();
 
-    // Use this for initialization
-    void Start () {        
-
-=======
-    public GameObject BlueCube;
+    // Use this for initialization      
+        
     public GameObject ClassCube;
     public GameObject LevelCube;
 
-    public int MaxRedCube = 1;
-    public int MaxBlueCube = 1;
-    public int MaxGreenCube = 1;
+    //public int MaxRedCube = 1;
+    //public int MaxBlueCube = 1;
+    //public int MaxGreenCube = 1;
 
-    int redloc = 5;
-    int greenloc = 10;
-    int blueloc = 15;
     int redTotal = 0;
     int blueTotal = 0;
     int greenTotal = 0;
@@ -48,7 +41,6 @@ public class SpawnCube : MonoBehaviour
         GreenCube.GetComponent<Rigidbody>();
         ClassCube.GetComponent<Rigidbody>();
         LevelCube.GetComponent<Rigidbody>();
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
     }
 
     // Update is called once per frame
@@ -71,27 +63,16 @@ public class SpawnCube : MonoBehaviour
 
     public void spawnRed()
     {
-<<<<<<< HEAD
         IncrementDice(RedCube, redloc );   
-=======
-        if (redTotal++ < MaxRedCube)
-            Instantiate(RedCube, new Vector3(redloc, 5, 0), transform.rotation);
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
     }
 
     public void spawnGreen()
     {
-<<<<<<< HEAD
         IncrementDice(GreenCube, greenloc);
-=======
-        if (greenTotal++ < MaxGreenCube)
-            Instantiate(GreenCube, new Vector3(greenloc, 5, 0), transform.rotation);
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
     }
 
     public void spawnBlue()
     {
-<<<<<<< HEAD
         IncrementDice(BlueCube, blueloc);
     }
 
@@ -108,15 +89,11 @@ public class SpawnCube : MonoBehaviour
     public void destroyGreen()
     {
         decrementDice(CloneGreen, greenAmount);
-=======
-        if (blueTotal++ < MaxBlueCube)
-            Instantiate(BlueCube, new Vector3(blueloc, 5, 0), transform.rotation);
     }
     public void spawnMonsterDice()
     {
         Instantiate(ClassCube, new Vector3(blueloc, 5, 0), transform.rotation);
         Instantiate(LevelCube, new Vector3(redloc, 5, 0), transform.rotation);
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
     }
 
     public void IncrementDice(GameObject sCube, int loc)
@@ -174,7 +151,7 @@ public class SpawnCube : MonoBehaviour
             Destroy(cloneG);
         }
 
-        DisplayDie.resetDiceSums(0,0,0);
+        DisplayDie.resetDiceSums(0,0,0, 0, 0);
         
     }
 

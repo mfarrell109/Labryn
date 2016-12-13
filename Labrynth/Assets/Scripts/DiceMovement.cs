@@ -17,35 +17,26 @@ public class DiceMovement : MonoBehaviour {
     private GUIStyle guiStyle = new GUIStyle();
     private GameObject[] RedTotal;
     private GameObject[] BlueTotal;
-<<<<<<< HEAD
-    private GameObject[] GreenTotal;
-=======
     private GameObject[] GreenTotal;
     private GameObject[] ClassTotal;
     private GameObject[] LevelTotal;
-    private bool redStop = false;
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
+
     BaseDieModel DisplayDie = new BaseDieModel();
     
     void Start ()
     {
-
-        BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
-        GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
-        RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
-<<<<<<< HEAD
-
         guiStyle.fontSize = 32;
         guiStyle.normal.textColor = Color.red;
         guiStyle.font = greekfont;
-=======
-        ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
-        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
     }
 	
 	// Update is called once per frame
 	void Update () {
+        BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
+        GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
+        RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
+        ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
+        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
     }
 
     /**
@@ -53,22 +44,8 @@ public class DiceMovement : MonoBehaviour {
      * **/
     public void moveDice()
     {
-        BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
-        GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
-        RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
-        ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
-        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
-
         //resetting each color dice total
-<<<<<<< HEAD
-        resetDiceSums();
-=======
-        DisplayDie.setRedSum(0);
-        DisplayDie.setBlueSum(0);
-        DisplayDie.setGreenSum(0);
-        DisplayDie.SetClassSum(0);
-        DisplayDie.SetLevelSum(0);
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
+        DisplayDie.resetDiceSums(0,0,0,0,0);
 
         try
         {
@@ -114,8 +91,6 @@ public class DiceMovement : MonoBehaviour {
     private void UpdateDiceMovement()
     {
         //GUI.DrawTexture(new Rect(10, 10, 60, 60), aTexture, ScaleMode.ScaleToFit, true, 10.0F);
-
-
         Invoke("updateYellowFont", .3f);
         Invoke("updateRedFont", .6f);
         Invoke("updateYellowFont", .9f);
@@ -133,7 +108,6 @@ public class DiceMovement : MonoBehaviour {
                 
             }
         }
-
         foreach (GameObject Blue in BlueTotal)
         {
             if (Physics.Raycast(Blue.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
@@ -154,7 +128,6 @@ public class DiceMovement : MonoBehaviour {
                 DisplayDie.setGreenSum(DisplayDie.getGreenSum() + DisplayDie.getGreenValue());
             }
         }
-<<<<<<< HEAD
 
         
     }      
@@ -169,58 +142,18 @@ public class DiceMovement : MonoBehaviour {
     {
         guiStyle.normal.textColor = Color.red;
         Debug.Log("Red Count: ");
-    }
-
-    public void resetDiceSums()
-    {
-        DisplayDie.setRedSum(0);
-        DisplayDie.setBlueSum(0);
-        DisplayDie.setGreenSum(0);
-    }
-
-=======
-        foreach (GameObject Class in ClassTotal)
-        {
-            if (Physics.Raycast(Class.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
-                (Class.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
-                (Class.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
-            {
-                DisplayDie.SetClassValue(hit.collider.GetComponent<DieValue>().value);
-                DisplayDie.SetClassSum(DisplayDie.GetClassSum() + DisplayDie.GetClassValue());
-            }
-        }
-        foreach (GameObject Level in LevelTotal)
-        {
-            if (Physics.Raycast(Level.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
-                (Level.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
-                (Level.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
-            {
-                DisplayDie.SetLevelValue(hit.collider.GetComponent<DieValue>().value);
-                DisplayDie.SetLevelSum(DisplayDie.GetLevelSum() + DisplayDie.GetLevelValue());
-            }
-        }
-    }        
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
+    }      
     
     /**
      * Labels to display for dice roll. Getting calculated values using the BaseDieModel
      **/
     void OnGUI()
     {
-<<<<<<< HEAD
-        //GUILayout.Label(new Rect(10, 10, 100, 20), DisplayDie.getBlueDiceName() + ": " + DisplayDie.getBlueSum());
-        //GUI.contentColor = Color.black;
-        //GUI.DrawTexture(new Rect(100, 10, 100, 20), atexture, ScaleMode.ScaleToFit, true, 10.0F);
-        GUI.Label(new Rect(10, 10, 100, 20) , DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum(), guiStyle);
-        GUI.Label(new Rect(10, 40, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum(),guiStyle);
-        GUI.Label(new Rect(10, 70, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum(), guiStyle);
-=======
-        GUI.Label(new Rect(10, 10, 100, 20), DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum());
-        GUI.Label(new Rect(0, 30, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum());
-        GUI.Label(new Rect(10, 50, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum());
-        GUI.Label(new Rect(10, 70, 100, 20), DisplayDie.GetClassName() + ": " + DisplayDie.GetClassValue());
-        GUI.Label(new Rect(10, 90, 100, 20), DisplayDie.GetLevelName() + ": " + DisplayDie.GetLevelValue());
->>>>>>> f8accb9065c968fe0c9fc5957770ae629d4b969a
+        GUI.Label(new Rect(35, 10, 100, 20) , DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum(), guiStyle);
+        GUI.Label(new Rect(35, 40, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum(),guiStyle);
+        GUI.Label(new Rect(35, 70, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum(), guiStyle);
+        GUI.Label(new Rect(35, 100, 100, 20), DisplayDie.GetClassName() + ": " + DisplayDie.GetClassValue(), guiStyle);
+        GUI.Label(new Rect(35, 130, 100, 20), DisplayDie.GetLevelName() + ": " + DisplayDie.GetLevelValue(), guiStyle);
     }
 
 }
