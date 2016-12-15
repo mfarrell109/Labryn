@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BaseDice : MonoBehaviour {
 
-    protected float force;
-    protected float torque;
+    public float force;
+    public float torque;
     protected int redValue;
     protected int blueValue;
     protected int greenValue;
