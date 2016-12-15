@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class BaseDice : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected float force;
+    protected float torque;
+    protected int redValue;
+    protected int blueValue;
+    protected int greenValue;
+    protected int classValue;
+    protected int levelValue;
+    protected int diceClass;
+    protected int diceLevel;
+    protected int greenSum;
+    protected int redSum;
+    protected int blueSum;
+    protected int classSum;
+    protected int levelSum;
+    public string greenName;
+    public string blueName;
+    public string redName;
+    public string diceClassName;
+    public string diceLevelName;
+    // Use this for initialization
+    
 }

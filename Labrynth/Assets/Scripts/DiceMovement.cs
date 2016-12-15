@@ -6,7 +6,7 @@ using System.Linq;
 /*
  * This script was created to apply attributes regarding physics to dice 
  */
-public class DiceMovement : MonoBehaviour {
+public class DiceMovement : BaseDIeModel {
 
 
     public LayerMask dieValueColliderLayer = -1;
@@ -21,22 +21,22 @@ public class DiceMovement : MonoBehaviour {
     private GameObject[] ClassTotal;
     private GameObject[] LevelTotal;
 
-    BaseDieModel DisplayDie = new BaseDieModel();
-    
-    void Start ()
+    void Start()
     {
+        initialValues(blueName, redName, greenName, torque, force, 0, 0, 0);
+
         guiStyle.fontSize = 32;
         guiStyle.normal.textColor = Color.red;
         guiStyle.font = greekfont;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
         GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
         ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
-        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
+        LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");        
     }
 
     /**
@@ -45,7 +45,7 @@ public class DiceMovement : MonoBehaviour {
     public void moveDice()
     {
         //resetting each color dice total
-        DisplayDie.resetDiceSums(0,0,0,0,0);
+        resetDiceSums(0,0,0,0,0);
 
         try
         {
@@ -80,8 +80,8 @@ public class DiceMovement : MonoBehaviour {
 
     private void ApplyForce(GameObject Die)
     {
-        Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getForce(), forceMode);
-        Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * DisplayDie.getTorque(), forceMode);
+        Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * getForce(), forceMode);
+        Die.GetComponent<Rigidbody>().AddForce(UnityEngine.Random.onUnitSphere * getTorque(), forceMode);
     }
 
     /**
@@ -103,8 +103,8 @@ public class DiceMovement : MonoBehaviour {
                 (Red.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
                 (Red.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
-                DisplayDie.setRedValue(hit.collider.GetComponent<DieValue>().value);
-                DisplayDie.setRedSum(DisplayDie.getRedSum() + DisplayDie.getRedValue());
+                setRedValue(hit.collider.GetComponent<DieValue>().value);
+                setRedSum(getRedSum() + getRedValue());
                 
             }
         }
@@ -114,8 +114,8 @@ public class DiceMovement : MonoBehaviour {
                 (Blue.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
                 (Blue.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
-                DisplayDie.setBlueValue(hit.collider.GetComponent<DieValue>().value);
-                DisplayDie.setBlueSum(DisplayDie.getBlueSum() + DisplayDie.getBlueValue());
+                setBlueValue(hit.collider.GetComponent<DieValue>().value);
+                setBlueSum(getBlueSum() + getBlueValue());
             }
         }
         foreach (GameObject Green in GreenTotal)
@@ -124,8 +124,8 @@ public class DiceMovement : MonoBehaviour {
                 (Green.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
                 (Green.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
-                DisplayDie.setGreenValue(hit.collider.GetComponent<DieValue>().value);
-                DisplayDie.setGreenSum(DisplayDie.getGreenSum() + DisplayDie.getGreenValue());
+                setGreenValue(hit.collider.GetComponent<DieValue>().value);
+                setGreenSum(getGreenSum() + getGreenValue());
             }
         }
 
@@ -149,11 +149,11 @@ public class DiceMovement : MonoBehaviour {
      **/
     void OnGUI()
     {
-        GUI.Label(new Rect(35, 10, 100, 20) , DisplayDie.getBlueDiceName() +  ": " + DisplayDie.getBlueSum(), guiStyle);
-        GUI.Label(new Rect(35, 40, 100, 20), DisplayDie.getRedDiceName() + ": " + DisplayDie.getRedSum(),guiStyle);
-        GUI.Label(new Rect(35, 70, 100, 20), DisplayDie.getGreenName() + ": "  + DisplayDie.getGreenSum(), guiStyle);
-        GUI.Label(new Rect(35, 100, 100, 20), DisplayDie.GetClassName() + ": " + DisplayDie.GetClassValue(), guiStyle);
-        GUI.Label(new Rect(35, 130, 100, 20), DisplayDie.GetLevelName() + ": " + DisplayDie.GetLevelValue(), guiStyle);
+        GUI.Label(new Rect(35, 10, 100, 20) , getBlueDiceName() +  ": " + getBlueSum(), guiStyle);
+        GUI.Label(new Rect(35, 40, 100, 20), getRedDiceName() + ": " + getRedSum(),guiStyle);
+        GUI.Label(new Rect(35, 70, 100, 20), getGreenName() + ": "  + getGreenSum(), guiStyle);
+        GUI.Label(new Rect(35, 100, 100, 20), GetClassName() + ": " + GetClassValue(), guiStyle);
+        GUI.Label(new Rect(35, 130, 100, 20), GetLevelName() + ": " + GetLevelValue(), guiStyle);
     }
 
 }

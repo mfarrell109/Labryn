@@ -3,44 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseDieModel : MonoBehaviour
+public class BaseDIeModel : BaseDice
 {
-    private float force;
-    private float torque;
-    private int redValue;
-    private int blueValue;
-    private int greenValue;
-    private int classValue;
-    private int levelValue;
-    private int diceClass;
-    private int diceLevel;
-    private int greenSum;
-    private int redSum;
-    private int blueSum;
-    private int classSum;
-    private int levelSum;
-    public string greenName;
-    public string blueName;
-    public string redName;
-    public string diceClassName;
-    public string diceLevelName;
-
-    public BaseDieModel()
-    {
-        force = 5000f;
-        torque = 8000f;
-        redValue = 0;
-        greenValue = 0;
-        blueValue = 0;
-        redSum = 0;
-        blueSum = 0;
-        greenSum = 0;
-        greenName = "Movement";
-        blueName = "Defense";
-        redName = "Attack";
-        diceClassName = "Monster";
-        diceLevelName = "Level";
-    }
 
     public float getForce()
     {
@@ -193,7 +157,6 @@ public class BaseDieModel : MonoBehaviour
     {
         return blueName;
     }
-
     
     public void setGreenName(string greenStringName)
     {
@@ -212,7 +175,20 @@ public class BaseDieModel : MonoBehaviour
         this.greenSum = Sgreen;
         this.classSum = SClass;
         this.levelSum = SLevel;      
-    }   
+    }
+
+    public void initialValues(string sGreen, string sRed, string sBlue, float sTorque, float sForce, 
+        int sGreenValue, int sRedValue, int sBlueValue )
+    {
+        this.greenName = sGreen;
+        this.redName = sRed;
+        this.blueName = sBlue;
+        this.torque = sTorque;
+        this.force = sForce;
+        this.greenValue = sGreenValue;
+        this.blueValue = sBlueValue;
+        this.redValue = sRedValue;
+    }
 }
 
 

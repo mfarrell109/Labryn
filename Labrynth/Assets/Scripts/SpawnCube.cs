@@ -19,20 +19,12 @@ public class SpawnCube : MonoBehaviour
     private int diceTotal;
     private Boolean nextRound = false;
 
-    BaseDieModel DisplayDie = new BaseDieModel();
+    BaseDIeModel DisplayDie = new BaseDIeModel();
 
-    // Use this for initialization      
+    // Use this for initialization  
         
     public GameObject ClassCube;
     public GameObject LevelCube;
-
-    //public int MaxRedCube = 1;
-    //public int MaxBlueCube = 1;
-    //public int MaxGreenCube = 1;
-
-    int redTotal = 0;
-    int blueTotal = 0;
-    int greenTotal = 0;
     // Use this for initialization
     void Start()
     {
@@ -46,6 +38,7 @@ public class SpawnCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DisplayDie.setGreenName("Hello");
         CloneBlue = GameObject.FindGameObjectsWithTag("BlueDice");
         CloneGreen = GameObject.FindGameObjectsWithTag("GreenDice");
         CloneRed = GameObject.FindGameObjectsWithTag("RedDice");
