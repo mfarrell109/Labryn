@@ -6,35 +6,40 @@ using System.Linq;
 /*
  * This script was created to apply attributes regarding physics to dice 
  */
-public class DiceMovement : BaseDIeModel {
+public class DiceRotation : BaseDIeModel
+{
 
 
     public LayerMask dieValueColliderLayer = -1;
-    
     //public string buttonName = "Fire1";
     public ForceMode forceMode;
-    private RaycastHit hit;
+    public Font greekfont;
+    RaycastHit hit;
+    private GUIStyle guiStyle = new GUIStyle();
     private GameObject[] RedTotal;
     private GameObject[] BlueTotal;
     private GameObject[] GreenTotal;
     private GameObject[] ClassTotal;
     private GameObject[] LevelTotal;
-    private bool isStuck = false;
     public GameObject platform;
-    //public Texture stuckButton;
-    private GamePanels GamePanels;
+    private Vector3 newPos;
 
     void Start()
     {
-        GamePanels = GetComponent<GamePanels>();
-                
+        platform.GetComponent<GameObject>();
         Vector3 newPos = new Vector3(0, 0, 0);
         initialValues(blueName, redName, greenName, torque, force, 0, 0, 0);
-        isStuck = false;
+
+        guiStyle.fontSize = 48;
+        guiStyle.normal.textColor = Color.red;
+        guiStyle.font = greekfont;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
+        //platform.AddComponent<Rigidbody>();
+        platform.GetComponent<GameObject>();
         BlueTotal = GameObject.FindGameObjectsWithTag("BlueDice");
         GreenTotal = GameObject.FindGameObjectsWithTag("GreenDice");
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
@@ -56,27 +61,6 @@ public class DiceMovement : BaseDIeModel {
         try
         {
             Invoke("UpdateDiceMovement", 3f);
-
-            foreach (GameObject Die in (BlueTotal))
-            {
-                ApplyForce(Die);
-            }
-            foreach (GameObject Die in (RedTotal))
-            {
-                ApplyForce(Die);
-            }
-            foreach (GameObject Die in (GreenTotal))
-            {
-                ApplyForce(Die);
-            }
-            foreach (GameObject Die in (ClassTotal))
-            {
-                ApplyForce(Die);
-            }
-            foreach (GameObject Die in (LevelTotal))
-            {
-                ApplyForce(Die);
-            }
         }
         catch (Exception e)
         {
@@ -96,61 +80,72 @@ public class DiceMovement : BaseDIeModel {
      * **/
     private void UpdateDiceMovement()
     {
-        
-        Vector3 newPos = new Vector3(9, 15.51f, 0);
+        Vector3 newPos = new Vector3(9, 15.37f, 0);
         platform.transform.position = newPos;
+        
         //GUI.DrawTexture(new Rect(10, 10, 60, 60), aTexture, ScaleMode.ScaleToFit, true, 10.0F);
         Invoke("updateYellowFont", .3f);
         Invoke("updateRedFont", .6f);
         Invoke("updateYellowFont", .9f);
-        Invoke("updateRedFont", 1.0f);
-        Invoke("getObjSum", 2f);       
-    } 
-    
-    private void getObjSum()
-    {
-
+        Invoke("updateRedFont", 2f);
+        
         foreach (GameObject Red in RedTotal)
         {
 
-            if (Physics.Raycast(Red.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer))
+            if (Physics.Raycast(Red.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
+                (Red.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
+                (Red.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
                 setRedValue(hit.collider.GetComponent<DieValue>().value);
                 setRedSum(getRedSum() + getRedValue());
-            }
-            else
-            {
-                isStuck = true;
+
             }
         }
         foreach (GameObject Blue in BlueTotal)
         {
-            if (Physics.Raycast(Blue.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer))            {
+            if (Physics.Raycast(Blue.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
+                (Blue.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
+                (Blue.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
+            {
                 setBlueValue(hit.collider.GetComponent<DieValue>().value);
                 setBlueSum(getBlueSum() + getBlueValue());
-            }
-            else
-            {
-                isStuck = true;
             }
         }
         foreach (GameObject Green in GreenTotal)
         {
-            if (Physics.Raycast(Green.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer))
+            if (Physics.Raycast(Green.transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer) &&
+                (Green.GetComponent<Rigidbody>().velocity == Vector3.zero) &&
+                (Green.GetComponent<Rigidbody>().angularVelocity == Vector3.zero))
             {
                 setGreenValue(hit.collider.GetComponent<DieValue>().value);
                 setGreenSum(getGreenSum() + getGreenValue());
             }
-            else
-            {
-                isStuck = true;
-            }
         }
+    }
 
-        if(isStuck == true) 
-        {
-            GamePanels.turnOnRollPanel();
-            isStuck = false;
-        }
-    }         
+    private void updateYellowFont()
+    {
+        guiStyle.normal.textColor = Color.yellow;
+        Debug.Log("Yellow Count: ");
+    }
+
+    private void updateRedFont()
+    {
+        guiStyle.normal.textColor = Color.red;
+        Debug.Log("Red Count: ");
+    }
+
+    /**
+     * Labels to display for dice roll. Getting calculated values using the BaseDieModel
+     **/
+    void OnGUI()
+    {
+        GUI.Label(new Rect(35, 10, 100, 20), getBlueDiceName() + ": " + getBlueSum(), guiStyle);
+
+        GUI.Label(new Rect(35, 50, 100, 20), getRedDiceName() + ": " + getRedSum(), guiStyle);
+        GUI.Label(new Rect(35, 90, 100, 20), getGreenName() + ": " + getGreenSum(), guiStyle);
+        GUI.Label(new Rect(35, 130, 100, 20), GetClassName() + ": " + GetClassValue(), guiStyle);
+        GUI.Label(new Rect(35, 170, 100, 20), GetLevelName() + ": " + GetLevelValue(), guiStyle);
+    }
+
 }

@@ -92,7 +92,9 @@
     <Compile Include="Assets\Scripts\Dice\Die_d10.cs" />
     <Compile Include="Assets\Scripts\Dice\Die_d6.cs" />
     <Compile Include="Assets\Scripts\DiceMovement.cs" />
+    <Compile Include="Assets\Scripts\DiceRotation.cs" />
     <Compile Include="Assets\Scripts\DieValue.cs" />
+    <Compile Include="Assets\Scripts\GamePanels.cs" />
     <Compile Include="Assets\Scripts\MonsterCharacter.cs" />
     <Compile Include="Assets\Scripts\MonsterGenerator.cs" />
     <Compile Include="Assets\Scripts\MonsterStats.cs" />

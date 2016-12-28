@@ -12,11 +12,16 @@ public class SpawnCube : MonoBehaviour
     private GameObject[] CloneBlue;
     private GameObject[] CloneGreen;
     private int playerDiceCount;
-    private int redloc, greenloc, blueloc;
+    private int priLoc;
+    private int beginSpawnPoint = 9;
+    private int endSpawnPoint = 18;
+    private int redLoc;
+    private int greenLoc;
+    private int blueLoc;
     private int redAmount, greenAmount, blueAmount;
     private int maxNumDice;
     private int minNumDice;
-    private int diceTotal;
+    private int diceTotal = 0;
     private Boolean nextRound = false;
 
     BaseDIeModel DisplayDie = new BaseDIeModel();
@@ -33,6 +38,8 @@ public class SpawnCube : MonoBehaviour
         GreenCube.GetComponent<Rigidbody>();
         ClassCube.GetComponent<Rigidbody>();
         LevelCube.GetComponent<Rigidbody>();
+        priLoc = 9;
+
     }
 
     // Update is called once per frame
@@ -42,51 +49,106 @@ public class SpawnCube : MonoBehaviour
         CloneBlue = GameObject.FindGameObjectsWithTag("BlueDice");
         CloneGreen = GameObject.FindGameObjectsWithTag("GreenDice");
         CloneRed = GameObject.FindGameObjectsWithTag("RedDice");
-        redloc = 5;
-        greenloc = 10;
-        blueloc = 15;
+
         redAmount = CloneRed.Length - 1;
         greenAmount = CloneGreen.Length - 1;
         blueAmount = CloneBlue.Length - 1;
         diceTotal = redAmount + greenAmount + blueAmount;
         maxNumDice = 0;
-        minNumDice = -1;
+        minNumDice = -1;     
 
     }
 
     public void spawnRed()
-    {
-        IncrementDice(RedCube, redloc );   
+    {    
+        if(priLoc <= endSpawnPoint && (redLoc < 3))
+        {
+            IncrementDice(RedCube, priLoc);
+            redLoc++;
+            priLoc = priLoc + 3;
+        }
+        else
+        {
+            Debug.Log("Can't spawn more red cubes");
+        }
     }
 
     public void spawnGreen()
     {
-        IncrementDice(GreenCube, greenloc);
+        if (priLoc <= endSpawnPoint && (greenLoc < 3))
+        {
+            //priLoc = 3;
+            IncrementDice(GreenCube, priLoc);
+            greenLoc++;
+            priLoc = priLoc + 3;
+
+        }
+        else
+        {
+            Debug.Log("Can't spawn more green cubes");
+        }
     }
 
     public void spawnBlue()
     {
-        IncrementDice(BlueCube, blueloc);
+        if (priLoc <= endSpawnPoint && (blueLoc < 3))
+        {
+            //priLoc = 3;
+            IncrementDice(BlueCube, priLoc);
+            blueLoc++;
+            priLoc = priLoc + 3;
+        }
+        else
+        {
+            Debug.Log("Can't spawn more blue cubes");
+        }
     }
 
     public void destroyRed()
     {
-        decrementDice(CloneRed, redAmount);
+        if (priLoc > beginSpawnPoint && redLoc > 0)
+        {
+            decrementDice(CloneRed, redAmount);
+            priLoc = priLoc - 3;
+            redLoc--;
+        }
+        else
+        {
+            Debug.Log("Can't destroy more red cubes");
+        }
     }
 
     public void destroyBlue()
     {
-        decrementDice(CloneBlue, blueAmount);
+        if (priLoc > beginSpawnPoint && blueLoc > 0)
+        {
+            decrementDice(CloneBlue, blueAmount);
+            priLoc = priLoc - 3;
+            blueLoc--;
+        }
+        else
+        {
+            Debug.Log("Can't destroy more blue cubes");
+        }
     }
 
     public void destroyGreen()
     {
-        decrementDice(CloneGreen, greenAmount);
+        if (priLoc > beginSpawnPoint && greenLoc > 0)
+        {
+            decrementDice(CloneGreen, greenAmount);
+            priLoc = priLoc - 3;
+            greenLoc--;
+        }
+        else
+        {
+            Debug.Log("Can't destroy more green cubes");
+        }
     }
     public void spawnMonsterDice()
     {
-        Instantiate(ClassCube, new Vector3(blueloc, 5, 0), transform.rotation);
-        Instantiate(LevelCube, new Vector3(redloc, 5, 0), transform.rotation);
+        Instantiate(ClassCube, new Vector3(priLoc, 5, 0), transform.rotation);
+        Instantiate(LevelCube, new Vector3(priLoc, 5, 0), transform.rotation);
     }
 
     public void IncrementDice(GameObject sCube, int loc)
@@ -95,7 +157,8 @@ public class SpawnCube : MonoBehaviour
         {
             if (diceTotal < maxNumDice)
             {
-                Instantiate(sCube , new Vector3(loc, 5, 0), Quaternion.Euler(0, 0, 0));
+                Instantiate(sCube , new Vector3(loc, 19, 0), Quaternion.Euler(0, 0, 0));
+                
             }
             else
             {
@@ -119,6 +182,7 @@ public class SpawnCube : MonoBehaviour
             else
             {
                 Debug.Log("You have 0 dice already. Please make a selection");
+
             }
         }
         catch (Exception e)
@@ -129,7 +193,12 @@ public class SpawnCube : MonoBehaviour
 
     public void destroyAllDice()
     {
+        priLoc = 9;
+        redLoc = 0;
+        greenLoc = 0;
+        blueLoc = 0;
         nextRound = true;
+        //diceTotal = 0;
 
         foreach (GameObject cloneR in CloneRed )
         {
@@ -147,12 +216,4 @@ public class SpawnCube : MonoBehaviour
         DisplayDie.resetDiceSums(0,0,0, 0, 0);
         
     }
-
-
-
-
-
-
-
-
 }
