@@ -13,38 +13,46 @@ public class SpawnCube : MonoBehaviour
     private GameObject[] CloneGreen;
     private int playerDiceCount;
     private int priLoc;
-    private int beginSpawnPoint = 9;
-    private int endSpawnPoint = 18;
+    private int beginSpawnPoint;
+    private int endSpawnPoint;
     private int redLoc;
     private int greenLoc;
     private int blueLoc;
     private int redAmount, greenAmount, blueAmount;
     private int maxNumDice;
     private int minNumDice;
-    private int diceTotal = 0;
-    private Boolean nextRound = false;
+    private static int diceTotal;
 
-    BaseDIeModel DisplayDie = new BaseDIeModel();
+    BaseDIeModel DisplayDie;
 
-    // Use this for initialization  
-        
+    // Use this for initialization       
     public GameObject ClassCube;
     public GameObject LevelCube;
     // Use this for initialization
     void Start()
     {
+        DisplayDie = GetComponent<BaseDIeModel>();
         RedCube.GetComponent<Rigidbody>();
         BlueCube.GetComponent<Rigidbody>();
         GreenCube.GetComponent<Rigidbody>();
         ClassCube.GetComponent<Rigidbody>();
         LevelCube.GetComponent<Rigidbody>();
         priLoc = 9;
+        beginSpawnPoint = 9;
+        endSpawnPoint = 18;
+        diceTotal = 0;
 
+    }
+
+    public int getDiceTotal()
+    {
+        return diceTotal;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         DisplayDie.setGreenName("Hello");
         CloneBlue = GameObject.FindGameObjectsWithTag("BlueDice");
         CloneGreen = GameObject.FindGameObjectsWithTag("GreenDice");
@@ -58,6 +66,8 @@ public class SpawnCube : MonoBehaviour
         minNumDice = -1;     
 
     }
+
+
 
     public void spawnRed()
     {    
@@ -145,6 +155,7 @@ public class SpawnCube : MonoBehaviour
             Debug.Log("Can't destroy more green cubes");
         }
     }
+
     public void spawnMonsterDice()
     {
         Instantiate(ClassCube, new Vector3(priLoc, 5, 0), transform.rotation);
@@ -197,8 +208,7 @@ public class SpawnCube : MonoBehaviour
         redLoc = 0;
         greenLoc = 0;
         blueLoc = 0;
-        nextRound = true;
-        //diceTotal = 0;
+        //nextRound = true;
 
         foreach (GameObject cloneR in CloneRed )
         {

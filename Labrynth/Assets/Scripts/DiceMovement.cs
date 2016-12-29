@@ -23,11 +23,15 @@ public class DiceMovement : BaseDIeModel {
     public GameObject platform;
     //public Texture stuckButton;
     private GamePanels GamePanels;
+    private ActiveButtons ActiveButton;
+    private SpawnCube SpawnCube;
+    private GUIStyle guiStyle = new GUIStyle();
 
     void Start()
     {
         GamePanels = GetComponent<GamePanels>();
-                
+        ActiveButton = GetComponent<ActiveButtons>();
+        SpawnCube = GetComponent<SpawnCube>();        
         Vector3 newPos = new Vector3(0, 0, 0);
         initialValues(blueName, redName, greenName, torque, force, 0, 0, 0);
         isStuck = false;
@@ -40,13 +44,32 @@ public class DiceMovement : BaseDIeModel {
         RedTotal = GameObject.FindGameObjectsWithTag("RedDice");
         ClassTotal = GameObject.FindGameObjectsWithTag("ClassDice");
         LevelTotal = GameObject.FindGameObjectsWithTag("LevelDice");
+        
     }
+
+
+    public void BeforeDiceMovement()
+    {
+
+        if (SpawnCube.getDiceTotal() <= -3)
+        {
+            GamePanels.turnOnRollPanel2();
+            Debug.Log("BeforeDiceMovement");
+        }
+        else
+        {
+            ActiveButton.ButtonNotActive();
+            moveDice();
+        }       
+        
+    }
+
 
     /**
      * This method is used to give dice movement(force and torque)
      * **/
     public void moveDice()
-    {
+    {        
         
         //resetting each color dice total
         resetDiceSums(0, 0, 0, 0, 0);
@@ -96,7 +119,8 @@ public class DiceMovement : BaseDIeModel {
      * **/
     private void UpdateDiceMovement()
     {
-        
+
+
         Vector3 newPos = new Vector3(9, 15.51f, 0);
         platform.transform.position = newPos;
         //GUI.DrawTexture(new Rect(10, 10, 60, 60), aTexture, ScaleMode.ScaleToFit, true, 10.0F);
@@ -105,10 +129,13 @@ public class DiceMovement : BaseDIeModel {
         Invoke("updateYellowFont", .9f);
         Invoke("updateRedFont", 1.0f);
         Invoke("getObjSum", 2f);       
-    } 
-    
+    }
+
+
+
     private void getObjSum()
     {
+        ActiveButton.ButtonIsActive();
 
         foreach (GameObject Red in RedTotal)
         {
@@ -149,8 +176,10 @@ public class DiceMovement : BaseDIeModel {
 
         if(isStuck == true) 
         {
-            GamePanels.turnOnRollPanel();
+            GamePanels.turnOnRollPanel1();
             isStuck = false;
         }
-    }         
+    }
+    
+             
 }

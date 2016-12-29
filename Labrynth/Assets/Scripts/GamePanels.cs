@@ -5,29 +5,55 @@ using UnityEngine;
 public class GamePanels : MonoBehaviour {
 
     public GameObject gamePanel;
+    public GameObject childPanel1;
+    public GameObject childPanel2;
+    private bool isUp;
+    
     // Use this for initialization
     void Start()
-    {
-        
-        //gamePanel.GetComponent<GameObject>();
-        //gamePanel = GameObject.FindGameObjectWithTag("Stuck");
-        GameObject.Find("Modal Panel");
+    {        
+        gamePanel.GetComponent<GameObject>();
+        childPanel1.GetComponent<GameObject>();
+        childPanel2.GetComponent<GameObject>();
+
         gamePanel.SetActive(false);
-        //turnOnRollPanel();
+        childPanel1.SetActive(false);
+        childPanel2.SetActive(false);
     }
 
-    public void turnOnRollPanel()
+    void Update()
     {
-        //gamePanel.GetComponent<GameObject>();
+        gamePanel.GetComponent<GameObject>();
+        childPanel1.GetComponent<GameObject>();
+        childPanel2.GetComponent<GameObject>();
+
+    }
+
+    public void turnOnRollPanel1()
+    {
+        childPanel2.SetActive(false);
+        childPanel1.SetActive(true);
         gamePanel.SetActive(true);
     }
 
-    public void turnOffRollPanel()
+    public void turnOffRollPanel1()
     {
-        //gamePanel.GetComponent<GameObject>();
         gamePanel.SetActive(false);
+        childPanel1.SetActive(false);        
+
     }
 
+    public void turnOnRollPanel2()
+    {
+        childPanel1.SetActive(false);
+        childPanel2.SetActive(true);
+        gamePanel.SetActive(true);
 
+    }
 
+    public void turnOffRollPanel2()
+    {
+        childPanel2.SetActive(false);
+        gamePanel.SetActive(false);
+    }
 }
