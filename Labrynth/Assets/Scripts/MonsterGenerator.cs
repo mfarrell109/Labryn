@@ -12,7 +12,7 @@ namespace Assets.Scripts.Character
         public List<MonsterStats> MonsterList { get; set; }
 
         // Singleton
-        private MonsterGenerator()
+        public MonsterGenerator()
         {
             BuildMonsterList();
         }
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Character
                 return _instance;
             }
         }
-        private void BuildMonsterList()
+        public void BuildMonsterList()
         {
             string json;
             using (StreamReader sr = new StreamReader(Path.GetFullPath(@"Assets\Scripts\MonsterRollSheet.json")))

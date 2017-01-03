@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -86,7 +84,6 @@
     <Compile Include="Assets\Dice\Plugins\Dice.cs" />
     <Compile Include="Assets\Dice\Plugins\Die.cs" />
     <Compile Include="Assets\Dice\scenes\Demo\AppDemo.cs" />
-    <Compile Include="Assets\Scripts\ScreenPanelIcons.cs" />
     <Compile Include="Assets\Scripts\ActiveButtons.cs" />
     <Compile Include="Assets\Scripts\BaseDIeModel.cs" />
     <Compile Include="Assets\Scripts\BaseDice.cs" />
@@ -106,6 +103,7 @@
     <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\ResetRound.cs" />
     <Compile Include="Assets\Scripts\Reward.cs" />
+    <Compile Include="Assets\Scripts\ScreenPanelIcons.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\SpawnCube.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />

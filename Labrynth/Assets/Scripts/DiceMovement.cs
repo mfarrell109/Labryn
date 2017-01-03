@@ -51,7 +51,7 @@ public class DiceMovement : BaseDIeModel {
     public void BeforeDiceMovement()
     {
 
-        if (SpawnCube.getDiceTotal() <= -3)
+        if ((SpawnCube.getDiceTotal() < 0))
         {
             GamePanels.turnOnRollPanel2();
             Debug.Log("BeforeDiceMovement");

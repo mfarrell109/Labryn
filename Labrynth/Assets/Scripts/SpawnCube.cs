@@ -23,7 +23,7 @@ public class SpawnCube : MonoBehaviour
     private int minNumDice;
     private static int diceTotal;
 
-    BaseDIeModel DisplayDie;
+    private BaseDIeModel DisplayDie;
 
     // Use this for initialization       
     public GameObject ClassCube;

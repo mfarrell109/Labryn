@@ -1,0 +1,15 @@
+﻿{
+    {
+      "class": 1,
+      "level": 1,
+      "surprise": true,
+      "attackLevel": 1,
+      "defenseLevel": 1,
+      "hp": 25,
+      "reward": {
+        "exp": 1,
+        "jewels": 1
+      }
+    }
+  ]
+}

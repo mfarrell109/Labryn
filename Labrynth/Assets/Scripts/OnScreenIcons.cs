@@ -9,7 +9,8 @@ public class OnScreenIcons : MonoBehaviour {
     public Texture2D iconDefense;
     public Texture2D iconAttack;
     public Texture2D iconMovement;
-    public SpawnCube SpawnCube;
+    private SpawnCube SpawnCube;
+
     // Use this for initialization
     void Start () {
         DiceMovement = GetComponent<DiceMovement>();
