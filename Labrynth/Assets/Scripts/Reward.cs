@@ -1,8 +1,9 @@
 ﻿namespace Assets.Scripts
 {
+    [System.Serializable]
     public class Reward
     {
-        public int Exp { get; set; }
-        public int Jewels { get; set; }
+        public int Exp;
+        public int Jewels;
     }
 }

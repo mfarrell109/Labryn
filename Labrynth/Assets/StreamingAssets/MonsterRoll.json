@@ -1,0 +1,436 @@
+﻿{  
+  "items": [
+    {
+      "Class": 1,
+      "Level": 1,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 25,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 1,
+      "Level": 2,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 0,
+      "HP": 25,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 0
+      }
+    },
+    {
+      "Class": 1,
+      "Level": 3,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 1,
+      "HP": 25,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 1,
+      "Level": 4,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 2,
+      "HP": 25,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 1,
+      "Level": 5,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 2,
+      "HP": 27,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 1,
+      "Level": 6,
+      "Surprise": "false",
+      "Attack": 3,
+      "Defense": 3,
+      "HP": 27,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 3
+      }
+    },
+    {
+      "Class": 2,
+      "Level": 1,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 27,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 2,
+      "Level": 2,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 27,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 2,
+      "Level": 3,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 1,
+      "HP": 27,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 2,
+      "Level": 4,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 1,
+      "HP": 27,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 2,
+      "Level": 5,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 2,
+      "HP": 30,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 2,
+      "Level": 6,
+      "Surprise": "false",
+      "Attack": 3,
+      "Defense": 3,
+      "HP": 30,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 3
+      }
+    },
+    {
+      "Class": 3,
+      "Level": 1,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 30,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 3,
+      "Level": 2,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 0,
+      "HP": 30,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 0
+      }
+    },
+    {
+      "Class": 3,
+      "Level": 3,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 1,
+      "HP": 30,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 3,
+      "Level": 4,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 1,
+      "HP": 30,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 3,
+      "Level": 5,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 2,
+      "HP": 33,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 3,
+      "Level": 6,
+      "Surprise": "false",
+      "Attack": 3,
+      "Defense": 3,
+      "HP": 33,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 3
+      }
+    },
+    {
+      "Class": 4,
+      "Level": 1,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 33,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 4,
+      "Level": 2,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 33,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 4,
+      "Level": 3,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 1,
+      "HP": 33,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 4,
+      "Level": 4,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 2,
+      "HP": 33,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 4,
+      "Level": 5,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 2,
+      "HP": 35,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 4,
+      "Level": 6,
+      "Surprise": "false",
+      "Attack": 3,
+      "Defense": 3,
+      "HP": 35,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 3
+      }
+    },
+    {
+      "Class": 5,
+      "Level": 1,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 35,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 5,
+      "Level": 2,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 0,
+      "HP": 35,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 0
+      }
+    },
+    {
+      "Class": 5,
+      "Level": 3,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 1,
+      "HP": 35,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 5,
+      "Level": 4,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 1,
+      "HP": 35,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 5,
+      "Level": 5,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 2,
+      "HP": 37,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 5,
+      "Level": 6,
+      "Surprise": "false",
+      "Attack": 3,
+      "Defense": 3,
+      "HP": 37,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 3
+      }
+    },
+    {
+      "Class": 6,
+      "Level": 1,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 37,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 6,
+      "Level": 2,
+      "Surprise": "true",
+      "Attack": 1,
+      "Defense": 1,
+      "HP": 37,
+      "Reward": {
+        "Exp": 1,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 6,
+      "Level": 3,
+      "Surprise": "true",
+      "Attack": 2,
+      "Defense": 1,
+      "HP": 37,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 1
+      }
+    },
+    {
+      "Class": 6,
+      "Level": 4,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 1,
+      "HP": 37,
+      "Reward": {
+        "Exp": 2,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 6,
+      "Level": 5,
+      "Surprise": "true",
+      "Attack": 3,
+      "Defense": 2,
+      "HP": 40,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 2
+      }
+    },
+    {
+      "Class": 6,
+      "Level": 6,
+      "Surprise": "false",
+      "Attack": 3,
+      "Defense": 3,
+      "HP": 40,
+      "Reward": {
+        "Exp": 3,
+        "Jewels": 3
+      }
+    }
+  ]
+}

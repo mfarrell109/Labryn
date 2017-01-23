@@ -7,13 +7,22 @@ using System.Text;
 
 namespace Assets.Scripts.Character
 {
+    [System.Serializable]
     public class MonsterStats
     {
-        public int Class { get; set; }
-        public int Level { get; set; }
-        public bool Supriseable { get; set; }
-        public int HP { get; set; }
-        public Reward Reward { get; set; }
-
+        public int Class;
+        public int Level;
+        public string Surprise;
+        public int HP;
+        public int Attack;
+        public int Defense;
+        public Reward Reward;
     }
+
+    [System.Serializable]
+    public class LocalizationMonsterData
+    {
+        public MonsterStats[] items;
+    }
+
 }

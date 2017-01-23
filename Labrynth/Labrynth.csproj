@@ -87,7 +87,7 @@
     <Compile Include="Assets\Scripts\ActiveButtons.cs" />
     <Compile Include="Assets\Scripts\BaseDIeModel.cs" />
     <Compile Include="Assets\Scripts\BaseDice.cs" />
-    <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\CharacterBase.cs" />
     <Compile Include="Assets\Scripts\Clock.cs" />
     <Compile Include="Assets\Scripts\CountDownTimer.cs" />
     <Compile Include="Assets\Scripts\Dice\Die_d10.cs" />
@@ -95,7 +95,10 @@
     <Compile Include="Assets\Scripts\DiceMovement.cs" />
     <Compile Include="Assets\Scripts\DiceRotation.cs" />
     <Compile Include="Assets\Scripts\DieValue.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GamePanels.cs" />
+    <Compile Include="Assets\Scripts\LocalIzationData.cs" />
+    <Compile Include="Assets\Scripts\LocalizationManager.cs" />
     <Compile Include="Assets\Scripts\MonsterCharacter.cs" />
     <Compile Include="Assets\Scripts\MonsterGenerator.cs" />
     <Compile Include="Assets\Scripts\MonsterStats.cs" />

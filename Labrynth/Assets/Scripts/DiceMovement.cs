@@ -47,7 +47,6 @@ public class DiceMovement : BaseDIeModel {
         
     }
 
-
     public void BeforeDiceMovement()
     {
 
@@ -63,7 +62,6 @@ public class DiceMovement : BaseDIeModel {
         }       
         
     }
-
 
     /**
      * This method is used to give dice movement(force and torque)
@@ -119,8 +117,6 @@ public class DiceMovement : BaseDIeModel {
      * **/
     private void UpdateDiceMovement()
     {
-
-
         Vector3 newPos = new Vector3(9, 15.51f, 0);
         platform.transform.position = newPos;
         //GUI.DrawTexture(new Rect(10, 10, 60, 60), aTexture, ScaleMode.ScaleToFit, true, 10.0F);

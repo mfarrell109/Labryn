@@ -1,0 +1,14 @@
+﻿{
+  "items": [
+    {
+      "key": "game_title",
+      "value": "Quiz Spiel",
+      "val2":  "55"
+    },
+    {
+      "key": "start_button",
+      "value": "Spiel Beginnen",
+      "val2":  "66"
+    }
+  ]
+}

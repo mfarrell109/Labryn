@@ -12,22 +12,26 @@ public class SpawnCube : MonoBehaviour
     private GameObject[] CloneBlue;
     private GameObject[] CloneGreen;
     private int playerDiceCount;
-    private int priLoc;
+    private int priLoc, secLoc;
     private int beginSpawnPoint;
     private int endSpawnPoint;
     private int redLoc;
     private int greenLoc;
     private int blueLoc;
-    private int redAmount, greenAmount, blueAmount;
+    private int classLoc;
+    private int levelLoc;
+    private int redAmount, greenAmount, blueAmount, levelAmount, classAmount;
     private int maxNumDice;
     private int minNumDice;
-    private static int diceTotal;
+    private static int diceTotal, monsterDiceTotal;
 
     private BaseDIeModel DisplayDie;
 
     // Use this for initialization       
     public GameObject ClassCube;
     public GameObject LevelCube;
+    private GameObject[] CloneClassCube;
+    private GameObject[] CloneLevelCube;
     // Use this for initialization
     void Start()
     {
@@ -38,6 +42,7 @@ public class SpawnCube : MonoBehaviour
         ClassCube.GetComponent<Rigidbody>();
         LevelCube.GetComponent<Rigidbody>();
         priLoc = 9;
+        secLoc = 9;
         beginSpawnPoint = 9;
         endSpawnPoint = 18;
         diceTotal = 0;
@@ -52,15 +57,18 @@ public class SpawnCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        DisplayDie.setGreenName("Hello");
+        
         CloneBlue = GameObject.FindGameObjectsWithTag("BlueDice");
         CloneGreen = GameObject.FindGameObjectsWithTag("GreenDice");
         CloneRed = GameObject.FindGameObjectsWithTag("RedDice");
+        CloneClassCube = GameObject.FindGameObjectsWithTag("ClassDice");
+        CloneLevelCube = GameObject.FindGameObjectsWithTag("LevelDice");
 
         redAmount = CloneRed.Length - 1;
         greenAmount = CloneGreen.Length - 1;
         blueAmount = CloneBlue.Length - 1;
+        classAmount = CloneClassCube.Length - 1;
+        levelAmount = CloneLevelCube.Length - 1;
         diceTotal = redAmount + greenAmount + blueAmount;
         maxNumDice = 0;
         minNumDice = -1;     
@@ -73,7 +81,7 @@ public class SpawnCube : MonoBehaviour
     {    
         if(priLoc <= endSpawnPoint && (redLoc < 3))
         {
-            IncrementDice(RedCube, priLoc);
+            IncrementPlayerDice(RedCube, priLoc);
             redLoc++;
             priLoc = priLoc + 3;
         }
@@ -88,7 +96,7 @@ public class SpawnCube : MonoBehaviour
         if (priLoc <= endSpawnPoint && (greenLoc < 3))
         {
             //priLoc = 3;
-            IncrementDice(GreenCube, priLoc);
+            IncrementPlayerDice(GreenCube, priLoc);
             greenLoc++;
             priLoc = priLoc + 3;
 
@@ -104,7 +112,7 @@ public class SpawnCube : MonoBehaviour
         if (priLoc <= endSpawnPoint && (blueLoc < 3))
         {
             //priLoc = 3;
-            IncrementDice(BlueCube, priLoc);
+            IncrementPlayerDice(BlueCube, priLoc);
             blueLoc++;
             priLoc = priLoc + 3;
         }
@@ -118,7 +126,7 @@ public class SpawnCube : MonoBehaviour
     {
         if (priLoc > beginSpawnPoint && redLoc > 0)
         {
-            decrementDice(CloneRed, redAmount);
+            decrementPlayerDice(CloneRed, redAmount);
             priLoc = priLoc - 3;
             redLoc--;
         }
@@ -132,7 +140,7 @@ public class SpawnCube : MonoBehaviour
     {
         if (priLoc > beginSpawnPoint && blueLoc > 0)
         {
-            decrementDice(CloneBlue, blueAmount);
+            decrementPlayerDice(CloneBlue, blueAmount);
             priLoc = priLoc - 3;
             blueLoc--;
         }
@@ -146,7 +154,7 @@ public class SpawnCube : MonoBehaviour
     {
         if (priLoc > beginSpawnPoint && greenLoc > 0)
         {
-            decrementDice(CloneGreen, greenAmount);
+            decrementPlayerDice(CloneGreen, greenAmount);
             priLoc = priLoc - 3;
             greenLoc--;
         }
@@ -156,13 +164,36 @@ public class SpawnCube : MonoBehaviour
         }
     }
 
-    public void spawnMonsterDice()
+    public void spawnLevelDice()
     {
-        Instantiate(ClassCube, new Vector3(priLoc, 5, 0), transform.rotation);
-        Instantiate(LevelCube, new Vector3(priLoc, 5, 0), transform.rotation);
+        if (secLoc <= endSpawnPoint && (classLoc < 3))
+        {
+            IncrementPlayerDice(ClassCube, priLoc);
+            classLoc++;
+            secLoc = secLoc + 3;
+        }
+        else
+        {
+            Debug.Log("Can't spawn more red cubes");
+        }
     }
 
-    public void IncrementDice(GameObject sCube, int loc)
+    public void spawnClassDice()
+    {
+        if (secLoc <= endSpawnPoint && (classLoc < 3))
+        {
+            IncrementPlayerDice(RedCube, priLoc);
+            classLoc++;
+            secLoc = secLoc + 3;
+        }
+        else
+        {
+            Debug.Log("Can't spawn more red cubes");
+        }
+    }
+
+
+    public void IncrementPlayerDice(GameObject sCube, int loc)
     {
         try
         {
@@ -182,7 +213,7 @@ public class SpawnCube : MonoBehaviour
         }
     }
 
-    private void decrementDice(GameObject[] sCube, int diceAmount )
+    private void decrementPlayerDice(GameObject[] sCube, int diceAmount )
     {
         try
         {
@@ -198,7 +229,7 @@ public class SpawnCube : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("decrementDice Error: " + e.Message);
+            Debug.Log("decrementPlayerDice Error: " + e.Message);
         }
     }
 
@@ -225,5 +256,11 @@ public class SpawnCube : MonoBehaviour
 
         DisplayDie.resetDiceSums(0,0,0, 0, 0);
         
+    }
+
+    //Method used to destroy all monster dice
+    public void destroyAllMonsterDice()
+    {
+
     }
 }
